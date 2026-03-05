@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Главная</h1>
+
+  {% if user %}
+    <p>Ты вошёл как <b>{{ user }}</b>.</p>
+    <p class="muted">Теперь можно добавлять профиль, роли, логи, 2FA и т.д.</p>
+  {% else %}
+    <p>Ты не вошёл.</p>
+    <p class="muted">Зарегистрируйся и зайди.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mini Auth</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <div class="logo">Mini Auth</div>
+      <nav class="nav">
+        <a href="/">Главная</a>
+        <a href="/register">Регистрация</a>
+        <a href="/login">Вход</a>
+        <a href="/logout">Выход</a>
+      </nav>
+    </header>
+
+    {% set flash = request.session.pop("flash", None) %}
+    {% if flash %}
+      <div class="flash">{{ flash }}</div>
+    {% endif %}
+
+    <main class="card">
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">FastAPI + SQLite • учебный проект</footer>
+  </div>
+</body>
+</html>
